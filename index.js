@@ -3,7 +3,7 @@ const app = express();
 const port = 3000;
 const mysql = require('mysql');
 
-//app.use(express.static(__dirname + "/static"));
+
 
 const db = mysql.createConnection({
     host: "localhost",

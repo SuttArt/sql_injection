@@ -8,7 +8,7 @@ const mysql = require('mysql');
 const db = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "1234",
+    password: "",
     database: "mydbTest"
 });
 
@@ -20,7 +20,7 @@ db.connect(function(err) {
 
 app.get("/getUsers", (req, res) => {
     const sql = "SELECT * FROM users";
-    let query = db.query(sql, (err, result) => {
+    db.query(sql, (err, result) => {
         if (err) {
             throw err;
         }
@@ -30,7 +30,17 @@ app.get("/getUsers", (req, res) => {
 
 app.get("/getUser/:id", (req, res) => {
     let sql = `SELECT name FROM users WHERE id='${req.params.id}'`;
-    let query = db.query(sql, (err, result) => {
+    db.query(sql, (err, result) => {
+        if (err) {
+
+        }
+        res.send(sql + "<br> <br>" + JSON.stringify(result));
+    })
+})
+
+app.get("/loginLike/:log&:pass", (req, res) => {
+    let sql = `SELECT mail FROM users WHERE name LIKE '${req.params.log}' AND password LIKE '${req.params.pass}'`;
+    db.query(sql, (err, result) => {
         if (err) {
 
         }
@@ -39,8 +49,8 @@ app.get("/getUser/:id", (req, res) => {
 })
 
 app.get("/login/:log&:pass", (req, res) => {
-    let sql = `SELECT mail FROM users WHERE name LIKE '${req.params.log}' AND password LIKE '${req.params.pass}'`;
-    let query = db.query(sql, (err, result) => {
+    let sql = `SELECT mail FROM users WHERE name = '${req.params.log}' AND password = '${req.params.pass}'`;
+    db.query(sql, (err, result) => {
         if (err) {
 
         }

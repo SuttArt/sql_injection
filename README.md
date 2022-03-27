@@ -1,4 +1,4 @@
-#How to Start
+# How to Start
 
 You can download a free MySQL database at https://www.apachefriends.org/de/index.html
 

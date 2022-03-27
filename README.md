@@ -48,7 +48,7 @@ http://localhost:3000/login/Admin&1234567
 
 ###What you should try
 
-http://localhost:3000/getUser/0'--%20
+http://localhost:3000/getUser/1'--%20
 
 http://localhost:3000/login/admin'--%20&1234567
 

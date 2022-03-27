@@ -22,7 +22,8 @@ app.get("/getUsers", (req, res) => {
     const sql = "SELECT * FROM users";
     db.query(sql, (err, result) => {
         if (err) {
-            throw err;
+            res.send(sql + "<br> <br>" + JSON.stringify(err));
+            return;
         }
         res.send(sql + "<br> <br>" + JSON.stringify(result));
     })
@@ -32,7 +33,19 @@ app.get("/getUser/:id", (req, res) => {
     let sql = `SELECT name FROM users WHERE id='${req.params.id}'`;
     db.query(sql, (err, result) => {
         if (err) {
+            res.send(sql + "<br> <br>" + JSON.stringify(err));
+            return;
+        }
+        res.send(sql + "<br> <br>" + JSON.stringify(result));
+    })
+})
 
+app.get("/getUserInfo/:id", (req, res) => {
+    let sql = `SELECT id, name, mail FROM users WHERE id='${req.params.id}'`;
+    db.query(sql, (err, result) => {
+        if (err) {
+            res.send(sql + "<br> <br>" + JSON.stringify(err));
+            return;
         }
         res.send(sql + "<br> <br>" + JSON.stringify(result));
     })
@@ -42,7 +55,8 @@ app.get("/loginLike/:log&:pass", (req, res) => {
     let sql = `SELECT mail FROM users WHERE name LIKE '${req.params.log}' AND password LIKE '${req.params.pass}'`;
     db.query(sql, (err, result) => {
         if (err) {
-
+            res.send(sql + "<br> <br>" + JSON.stringify(err));
+            return;
         }
         res.send(sql + "<br> <br>" + JSON.stringify(result));
     })
@@ -52,7 +66,8 @@ app.get("/login/:log&:pass", (req, res) => {
     let sql = `SELECT mail FROM users WHERE name = '${req.params.log}' AND password = '${req.params.pass}'`;
     db.query(sql, (err, result) => {
         if (err) {
-
+            res.send(sql + "<br> <br>" + JSON.stringify(err));
+            return;
         }
         res.send(sql + "<br> <br>" + JSON.stringify(result));
     })

